@@ -106,3 +106,11 @@ function erTom(id, error) {
         return false;
     }
 }
+
+function erFyltFilm() {
+    if (document.getElementById("filmer").value != "default") {
+        document.getElementById("filmError").textContent = "";
+    } else {
+        document.getElementById("filmError").textContent = "Må velge en film";
+    }
+}
