@@ -4,9 +4,9 @@ function leggTilBillett() {
 
     // Sjekker om feltene er tomme
     if (document.getElementById("filmer").value === "default") {
-        document.getElementById("filmError").textContent = "Må velge en film";
+        document.getElementById("filmError").innerHTML = "Må velge en film";
     } else {
-        document.getElementById("filmError").textContent = "";
+        document.getElementById("filmError").innerHTML = "";
     }
     erTom("antall", "antallError");
     erTom("fornavn", "fornavnError");
@@ -15,12 +15,12 @@ function leggTilBillett() {
     erTom("epost", "epostError");
 
     // Dersom feltene har en error skal funksjonen returnere
-    if (document.getElementById("filmError").textContent !== "" ||
-        document.getElementById("antallError").textContent !== "" ||
-        document.getElementById("fornavnError").textContent !== "" ||
-        document.getElementById("etternavnError").textContent !== "" ||
-        document.getElementById("tlfError").textContent !== "" ||
-        document.getElementById("epostError").textContent !== "") {
+    if (document.getElementById("filmError").innerHTML !== "" ||
+        document.getElementById("antallError").innerHTML !== "" ||
+        document.getElementById("fornavnError").innerHTML !== "" ||
+        document.getElementById("etternavnError").innerHTML !== "" ||
+        document.getElementById("tlfError").innerHTML !== "" ||
+        document.getElementById("epostError").innerHTML !== "") {
         return;
     }
 
@@ -64,16 +64,16 @@ function slettBilletter() {
     while (billetter.length !== 0) {
         billetter.pop();
     }
-    document.getElementById("billetter").textContent = "";
+    document.getElementById("billetter").innerHTML = "";
 }
 
 function sjekkSkrivefeilNavn(navn, error) {
     let tillatt = /^[a-zA-Z]*$/;
 
     if (!tillatt.test(document.getElementById(navn).value)) {
-        document.getElementById(error).textContent = "Ikke gyldig fornavn";
+        document.getElementById(error).innerHTML = "Ikke gyldig fornavn";
     } else {
-        document.getElementById(error).textContent = "";
+        document.getElementById(error).innerHTML = "";
     }
 }
 
@@ -81,9 +81,9 @@ function sjekkTlf() {
     let tillatt = /^[0-9]*$/;
 
     if (!tillatt.test(document.getElementById("tlfnr").value) || document.getElementById("tlfnr").value.length !== 8) {
-        document.getElementById("tlfError").textContent = "Ikke gyldig telefonnummer";
+        document.getElementById("tlfError").innerHTML = "Ikke gyldig telefonnummer";
     } else {
-        document.getElementById("tlfError").textContent = "";
+        document.getElementById("tlfError").innerHTML = "";
     }
 }
 
@@ -91,26 +91,26 @@ function sjekkEpost() {
     let trenger = /\S+@\S+\.\S+$/;
 
     if (!trenger.test(document.getElementById("epost").value)) {
-        document.getElementById("epostError").textContent = "Ikke gyldig epostadresse";
+        document.getElementById("epostError").innerHTML = "Ikke gyldig epostadresse";
     } else {
-        document.getElementById("epostError").textContent = "";
+        document.getElementById("epostError").innerHTML = "";
     }
 }
 
 function erTom(id, error) {
     if (document.getElementById(id).value === "") {
-        document.getElementById(error).textContent = "Må fylles inn";
+        document.getElementById(error).innerHTML = "Må fylles inn";
         return true;
     } else {
-        document.getElementById(error).textContent = "";
+        document.getElementById(error).innerHTML = "";
         return false;
     }
 }
 
 function erFyltFilm() {
     if (document.getElementById("filmer").value != "default") {
-        document.getElementById("filmError").textContent = "";
+        document.getElementById("filmError").innerHTML = "";
     } else {
-        document.getElementById("filmError").textContent = "Må velge en film";
+        document.getElementById("filmError").innerHTML = "Må velge en film";
     }
 }
